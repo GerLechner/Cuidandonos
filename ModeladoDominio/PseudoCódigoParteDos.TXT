@@ -1,0 +1,35 @@
+METODO EN LA CLASE VIAJE
+
+method demoraViajeAprox() {
+	return self.metodoAviso().calcularTiempoViaje(self)
+}
+
+
+METODO EN LA CLASE "SALUD" 
+(La clase en la que el comportamiento en cada parada es indicando que se llegó bien)
+
+
+class Salud {
+	public calculadoraTIempo = new CalculoTiempoViaje()
+
+	method calcularTiempoViaje(Viaje) {
+		return calculadoraTIempo.calculoTiempo(Viaje.origen(), viaje.destino.last() )
+	}
+}
+
+METODO EN LA CLASE MINUTOSPORPARADA 
+
+(Clase en la que el comportamiento en cada parada es esperar N minutos)
+
+class MinutosPorParada {
+	public calcTiempo = new CalculoTiempoViaje()
+	private tiempoTotal	
+
+	method calcularTiempoViaje(Viaje) {
+		tiempoTotal += calcTiempo(Viaje.origen, Viaje.destinos.get(0).direccion())
+		for(i=0; i<destinos.size() -1 , i++) {
+			tiempoTotal += calcTiempo(destinos.get(i).direccion() , destinos.get(i+1).direccion() ) + destinos.get(i).minutosPorParada()
+		}
+		return tiempoTotal
+	}
+}
